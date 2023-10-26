@@ -1,6 +1,6 @@
 #' Title
 #'
-#' @param x
+#' @param x this a value
 #'
 #' @return data
 
