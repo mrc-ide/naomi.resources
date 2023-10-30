@@ -4,22 +4,18 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of naomi.resources is to ...
 
-## Installation
+### Installation
 
-You can install the development version of naomi.resources like so:
+The package is not available from [CRAN](https://cran.r-project.org/).
+Instead, the latest version (of this Github repo) may be installed by running the following code from R.
 
-``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+```
+# install.packages("devtools") # Uncomment this line if devtools is not yet installed
+devtools::install_github("mrc-ide/naomi.resources")
 ```
 
-## Example
+## License
 
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(naomi.resources)
-## basic example code
-```
+MIT © Imperial College of Science, Technology and Medicine
 
