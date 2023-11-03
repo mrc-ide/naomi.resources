@@ -7,66 +7,47 @@
 #'
 #' @export
 
-load_agyw_exdata <- function(data, iso3){
+load_agyw_exdata <- function(data, iso3) {
 
-  if(data == "srb_female"){
-    path <- file.path("extdata/agyw", iso3, "female_best-3p1-multi-sexbehav-sae.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
+  agyw_data_root <- system_file(file.path("extdata", "agyw"))
+  validate_inputs(agyw_data_root, data, iso3)
+  iso3 <- toupper(iso3)
 
-  if(data == "srb_male"){
-    path <- file.path("extdata/agyw", iso3, "male_best-3p1-multi-sexbehav-sae.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
+  path <- switch(
+    data,
+    "srb_female" = file.path(iso3, "female_best-3p1-multi-sexbehav-sae.csv"),
+    "srb_male" = file.path(iso3, "male_best-3p1-multi-sexbehav-sae.csv"),
+    "srb_survey_female" = file.path(iso3, "male_best-3p1-multi-sexbehav-sae.csv"),
+    "srb_survey_male" = file.path(iso3, "male_hiv_indicators_sexbehav.csv"),
+    "fsw_pse" = file.path(iso3, "fsw_pse.csv"),
+    "msm_pse" = file.path(iso3, "msm_pse.csv"),
+    "pwid_pse" = file.path(iso3, "pwid_pse.csv"),
+    "afs" = file.path(iso3, "kinh_afs_dist.csv"),
+    "zaf_propensity" = file.path("ZAF", "zaf_propensity.csv"),
+    cli::cli_abort("Can't locate data of type '{data}'.")
+  )
 
-  if(data == "srb_survey_female"){
-    path <- file.path("extdata/agyw", iso3, "female_hiv_indicators_sexbehav.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
-
-  if(data == "srb_survey_male"){
-    path <- file.path("extdata/agyw", iso3, "male_hiv_indicators_sexbehav.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
-
-  if(data == "fsw_pse"){
-    path <- file.path("extdata/agyw", iso3, "fsw_pse.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                    show_col_types = FALSE)
-  }
-
-  if(data == "msm_pse"){
-    path <- file.path("extdata/agyw", iso3, "msm_pse.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
-
-  if(data == "pwid_pse"){
-    path <- file.path("extdata/agyw", iso3, "pwid_pse.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
-
-  if(data == "afs"){
-    path <- file.path("extdata/agyw", iso3, "kinh_afs_dist.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
-
-  if(data == "zaf_propensity"){
-    path <- "extdata/agyw/ZAF/zaf_propensity.csv"
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
-
-  x
-
+  path <- file.path(agyw_data_root, path)
+  read_naomi_resource(path)
 }
 
+validate_inputs <- function(agy_data_path, data, iso3) {
+  assert_scalar_character(iso3)
+  assert_scalar_character(data)
 
+  available_iso3 <- list.files(agy_data_path)
+  if (!(tolower(iso3) %in% tolower(available_iso3))) {
+    available <- paste(available_iso3, collapse = "', '")
+    cli::cli_abort(c("Can't locate data for iso3 '{iso3}'",
+                     i = "Available countries are '{available}'."))
+  }
+}
 
+read_naomi_resource <- function(path) {
+  readr::read_csv(path, show_col_types = FALSE)
+}
+
+system_file <- function(...) {
+  system.file(..., package = "naomi.resources", mustWork = TRUE)
+}
 
