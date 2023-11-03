@@ -31,6 +31,15 @@ load_agyw_exdata <- function(data, iso3) {
   read_naomi_resource(path)
 }
 
+#' Get the path to the workbook template
+#'
+#' @return Path to the workbook template
+#'
+#' @export
+get_workbook_template_path <- function() {
+  system_file("extdata", "agyw", "pse_workbook_template.xlsx")
+}
+
 validate_inputs <- function(agy_data_path, data, iso3) {
   assert_scalar_character(iso3)
   assert_scalar_character(data)

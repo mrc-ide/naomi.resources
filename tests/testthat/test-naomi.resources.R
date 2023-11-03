@@ -26,6 +26,10 @@ test_that("can get zaf_propensity data", {
   expect_equal(ncol(data), 2)
 })
 
+test_that("can get path to workbook template", {
+  expect_silent(get_workbook_template_path())
+})
+
 test_that("informative error thrown if iso3 or data unknown", {
   expect_error(
     load_agyw_exdata("srb_female", "UNK"),
