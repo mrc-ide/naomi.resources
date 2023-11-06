@@ -5,12 +5,14 @@
 #' @param data Name of data dependency (see below for full description).
 #' @param iso3 Country iso3
 #'
+#' @return Loaded AGYW data.
+#'
 #' @export
-
 load_agyw_exdata <- function(data, iso3) {
-
+  assert_scalar_character(data)
+  assert_scalar_character(iso3)
   agyw_data_root <- system_file(file.path("extdata", "agyw"))
-  validate_inputs(agyw_data_root, data, iso3)
+  validate_inputs(agyw_data_root, iso3)
   iso3 <- toupper(iso3)
 
   path <- switch(
@@ -33,17 +35,21 @@ load_agyw_exdata <- function(data, iso3) {
 
 #' Get the path to the workbook template
 #'
+#' @param iso3 Country iso3
+#'
 #' @return Path to the workbook template
 #'
 #' @export
-get_workbook_template_path <- function() {
-  system_file("extdata", "agyw", "pse_workbook_template.xlsx")
+get_agyw_workbook_path <- function(iso3) {
+  assert_scalar_character(iso3)
+  agyw_data_root <- system_file(file.path("extdata", "agyw"))
+  validate_inputs(agyw_data_root, iso3)
+  iso3 <- toupper(iso3)
+
+  file.path(agyw_data_root, iso3, "pse_workbook_template.xlsx")
 }
 
-validate_inputs <- function(agy_data_path, data, iso3) {
-  assert_scalar_character(iso3)
-  assert_scalar_character(data)
-
+validate_inputs <- function(agy_data_path, iso3) {
   available_iso3 <- list.files(agy_data_path)
   if (!(tolower(iso3) %in% tolower(available_iso3))) {
     available <- paste(available_iso3, collapse = "', '")
