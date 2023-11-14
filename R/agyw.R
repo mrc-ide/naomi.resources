@@ -21,17 +21,12 @@ load_agyw_exdata <- function(data, iso3){
                          show_col_types = FALSE)
   }
 
-  if(data == "srb_survey_female"){
-    path <- file.path("extdata/agyw", iso3, "female_hiv_indicators_sexbehav.csv")
+  if(data == "srb_survey_lor"){
+    path <- file.path("extdata/agyw", iso3, "prevalence_lor.csv")
     x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
                          show_col_types = FALSE)
   }
 
-  if(data == "srb_survey_male"){
-    path <- file.path("extdata/agyw", iso3, "male_hiv_indicators_sexbehav.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
 
   if(data == "fsw_pse"){
     path <- file.path("extdata/agyw", iso3, "fsw_pse.csv")
