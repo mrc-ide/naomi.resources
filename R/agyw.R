@@ -7,7 +7,7 @@
 #'
 #' @export
 
-load_agyw_exdata <- function(data, iso3){
+load_agyw_exdata <- function(data, iso3, kp = NULL){
 
   if(data == "srb_female"){
     path <- file.path("extdata/agyw", iso3, "female_best-3p1-multi-sexbehav-sae.csv")
@@ -34,23 +34,12 @@ load_agyw_exdata <- function(data, iso3){
                     show_col_types = FALSE)
   }
 
-  if(data == "msm_pse"){
-    path <- file.path("extdata/agyw", iso3, "msm_pse.csv")
+  if(data == "kp_pse"){
+    path <- file.path("extdata/agyw", iso3, "pse.csv")
     x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
                          show_col_types = FALSE)
   }
 
-  if(data == "pwid_pse"){
-    path <- file.path("extdata/agyw", iso3, "pwid_pse.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
-
-  if(data == "afs"){
-    path <- file.path("extdata/agyw", iso3, "kinh_afs_dist.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
 
   if(data == "zaf_propensity"){
     path <- "extdata/agyw/ZAF/zaf_propensity.csv"
