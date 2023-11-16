@@ -28,18 +28,17 @@ load_agyw_exdata <- function(data, iso3, kp = NULL){
   }
 
 
-  if(data == "fsw_pse"){
-    path <- file.path("extdata/agyw", iso3, "fsw_pse.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                    show_col_types = FALSE)
-  }
-
   if(data == "kp_pse"){
     path <- file.path("extdata/agyw", iso3, "pse.csv")
     x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
                          show_col_types = FALSE)
   }
 
+  if(data == "afs"){
+    path <- file.path("extdata/agyw", iso3, "kinh_afs_dist.csv")
+    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
+                         show_col_types = FALSE)
+  }
 
   if(data == "zaf_propensity"){
     path <- "extdata/agyw/ZAF/zaf_propensity.csv"
