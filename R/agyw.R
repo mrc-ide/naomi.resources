@@ -28,8 +28,8 @@ load_agyw_exdata <- function(data, iso3, kp = NULL){
   }
 
 
-  if(data == "kp_pse"){
-    path <- file.path("extdata/agyw", iso3, "pse.csv")
+  if(data == "kp_estimates"){
+    path <- file.path("extdata/agyw", iso3, "kp_estimates.csv")
     x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
                          show_col_types = FALSE)
   }
