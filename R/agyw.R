@@ -23,11 +23,8 @@ load_agyw_exdata <- function(data, iso3) {
     data,
     "srb_female" = file.path("female_best-3p1-multi-sexbehav-sae.csv"),
     "srb_male" = file.path("male_best-3p1-multi-sexbehav-sae.csv"),
-    "srb_survey_female" = file.path("male_best-3p1-multi-sexbehav-sae.csv"),
-    "srb_survey_male" = file.path("male_hiv_indicators_sexbehav.csv"),
-    "fsw_pse" = file.path("fsw_pse.csv"),
-    "msm_pse" = file.path("msm_pse.csv"),
-    "pwid_pse" = file.path("pwid_pse.csv"),
+    "srb_survey_lor" = file.path("prevalence_lor.csv"),
+    "kp_estimates" = file.path("kp_estimates.csv"),
     "afs" = file.path("kinh_afs_dist.csv"),
     "zaf_propensity" = file.path("zaf_propensity.csv"),
     cli::cli_abort("Can't locate data of type '{data}'.")

@@ -1,7 +1,6 @@
 test_that("can get AGYW data for a country", {
-  data_types <- c("srb_female", "srb_male", "srb_survey_female",
-                  "srb_survey_male", "fsw_pse", "msm_pse",
-                  "pwid_pse", "afs")
+  data_types <- c("srb_female", "srb_male", "srb_survey_lor",
+                  "kp_estimates", "afs")
 
   for (data_type in data_types) {
     tryCatch(
@@ -13,7 +12,7 @@ test_that("can get AGYW data for a country", {
     )
     ## Simple smoke test that there is some data, we should probably also
     ## check that the columns we expect to exist do so
-    expect_true(nrow(data) > 20,
+    expect_true(nrow(data) > 5,
                 info = sprintf("Failed for data_type: '%s'", data_type))
     expect_true(ncol(data) > 3,
                 info = sprintf("Failed for data_type: '%s'", data_type))

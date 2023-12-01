@@ -1,0 +1,9 @@
+iso3,sex,lor_15to29,lor_30to49,srb_group
+ZWE,female,0.19063610235535014,0.3577061325687839,nosex12m_id
+ZWE,female,0.2874115488053769,-0.5780666863052889,sexcohab_id
+ZWE,female,NA,NA,sexnonreg_id
+ZWE,female,NA,NA,sexpaid12m_id
+ZWE,male,-0.19587636474561335,0.39837465609648526,nosex12m_id
+ZWE,male,NA,NA,sexcohab_id
+ZWE,male,NA,NA,sexnonreg_id
+ZWE,male,NA,NA,sexpaid12m_id
