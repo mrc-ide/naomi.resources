@@ -4,10 +4,7 @@
 \alias{get_agyw_workbook_path}
 \title{Get the path to the workbook template}
 \usage{
-get_agyw_workbook_path(iso3)
-}
-\arguments{
-\item{iso3}{Country iso3}
+get_agyw_workbook_path()
 }
 \value{
 Path to the workbook template
