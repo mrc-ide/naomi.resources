@@ -36,17 +36,11 @@ load_agyw_exdata <- function(data, iso3) {
 
 #' Get the path to the workbook template
 #'
-#' @param iso3 Country iso3
-#'
 #' @return Path to the workbook template
 #'
 #' @export
-get_agyw_workbook_path <- function(iso3) {
-  assert_scalar_character(iso3)
-  agyw_data_root <- system_file(file.path("extdata", "agyw"))
-  country_data <- get_country_data_path(agyw_data_root, iso3)
-
-  file.path(country_data, "pse_workbook_template.xlsx")
+get_agyw_workbook_path <- function() {
+  system_file(file.path("extdata", "agyw"), "pse_workbook_template.xlsx")
 }
 
 get_country_data_path <- function(agy_data_path, iso3) {

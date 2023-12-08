@@ -26,7 +26,7 @@ test_that("can get zaf_propensity data", {
 })
 
 test_that("can get path to workbook template", {
-  expect_silent(get_agyw_workbook_path("BWA"))
+  expect_silent(get_agyw_workbook_path())
 })
 
 test_that("informative error thrown if iso3 or data unknown", {
