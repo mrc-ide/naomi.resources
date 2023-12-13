@@ -13,6 +13,8 @@ load_agyw_exdata(data, iso3)
 }
 \value{
 Data input for AGYW PSE tool.
+
+Loaded AGYW data.
 }
 \description{
 Load dependencies for AGYW PSE tool

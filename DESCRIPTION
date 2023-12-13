@@ -4,11 +4,15 @@ Version: 0.0.1
 Authors@R: 
     person(given = "Rachel", family = "Esra", 
     email = "REsra@avenirhealth.org", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: Makes data for Naomi output generation as an R package.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3
+URL: https://github.com/mrc-ide/naomi.resources
+Imports:
+    cli,
+    readr
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

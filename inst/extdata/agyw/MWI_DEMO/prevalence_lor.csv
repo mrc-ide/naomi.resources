@@ -1,0 +1,9 @@
+iso3,sex,lor_15to29,lor_30to49,srb_group,area_id
+MWI,female,0.08085974866217206,0.6084734170003816,nosex12m_id,MWI_demo
+MWI,female,-0.06442566761547452,-0.3063173097347686,sexcohab_id,MWI_demo
+MWI,female,0.3493646961128731,0.43768853676665537,sexnonreg_id,MWI_demo
+MWI,female,NA,NA,sexpaid12m_id,MWI_demo
+MWI,male,0.01092131391392439,0.23813187327020552,nosex12m_id,MWI_demo
+MWI,male,-0.1525606705395237,-0.09654631316218876,sexcohab_id,MWI_demo
+MWI,male,0.24674357978182437,0.203863752754776,sexnonreg_id,MWI_demo
+MWI,male,NA,NA,sexpaid12m_id,MWI_demo

@@ -5,51 +5,59 @@
 #' @param data Name of data dependency (see below for full description).
 #' @param iso3 Country iso3
 #'
+#' @return Loaded AGYW data.
+#'
 #' @export
+load_agyw_exdata <- function(data, iso3) {
+  assert_scalar_character(data)
+  assert_scalar_character(iso3)
+  country_data <- get_country_data_path(
+    system_file(file.path("extdata", "agyw")),
+    iso3)
 
-load_agyw_exdata <- function(data, iso3, kp = NULL){
-
-  if(data == "srb_female"){
-    path <- file.path("extdata/agyw", iso3, "female_best-3p1-multi-sexbehav-sae.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
+  if (data == "zaf_propensity" && toupper(iso3) != "ZAF") {
+    cli::cli_abort("Can't get zaf_propensity data for country '{iso3}'.")
   }
 
-  if(data == "srb_male"){
-    path <- file.path("extdata/agyw", iso3, "male_best-3p1-multi-sexbehav-sae.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
+  path <- switch(
+    data,
+    "srb_female" = file.path("female_best-3p1-multi-sexbehav-sae.csv"),
+    "srb_male" = file.path("male_best-3p1-multi-sexbehav-sae.csv"),
+    "srb_survey_lor" = file.path("prevalence_lor.csv"),
+    "kp_estimates" = file.path("kp_estimates.csv"),
+    "afs" = file.path("age_sex_fertility_rates.csv"),
+    "zaf_propensity" = file.path("zaf_propensity.csv"),
+    cli::cli_abort("Can't locate data of type '{data}'.")
+  )
 
-  if(data == "srb_survey_lor"){
-    path <- file.path("extdata/agyw", iso3, "prevalence_lor.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
-
-
-  if(data == "kp_estimates"){
-    path <- file.path("extdata/agyw", iso3, "kp_estimates.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
-
-  if(data == "afs"){
-    path <- file.path("extdata/agyw", iso3, "kinh_afs_dist.csv")
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
-
-  if(data == "zaf_propensity"){
-    path <- "extdata/agyw/ZAF/zaf_propensity.csv"
-    x <- readr::read_csv(system.file(path, package = "naomi.resources", mustWork = TRUE),
-                         show_col_types = FALSE)
-  }
-
-  x
-
+  path <- file.path(country_data, path)
+  read_naomi_resource(path)
 }
 
+#' Get the path to the workbook template
+#'
+#' @return Path to the workbook template
+#'
+#' @export
+get_agyw_workbook_path <- function() {
+  system_file(file.path("extdata", "agyw"), "pse_workbook_template.xlsx")
+}
 
+get_country_data_path <- function(agy_data_path, iso3) {
+  available_iso3 <- list.files(agy_data_path)
+  if (!(tolower(iso3) %in% tolower(available_iso3))) {
+    available <- paste(available_iso3, collapse = "', '")
+    cli::cli_abort(c("Can't locate data for iso3 '{iso3}'",
+                     i = "Available countries are '{available}'."))
+  }
+  invisible(file.path(agy_data_path, toupper(iso3)))
+}
 
+read_naomi_resource <- function(path) {
+  readr::read_csv(path, show_col_types = FALSE)
+}
+
+system_file <- function(...) {
+  system.file(..., package = "naomi.resources", mustWork = TRUE)
+}
 
