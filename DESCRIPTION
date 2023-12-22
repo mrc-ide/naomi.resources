@@ -1,6 +1,6 @@
 Package: naomi.resources
 Title: Data dependencies for Naomi output generation
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Rachel", family = "Esra", 
     email = "REsra@avenirhealth.org", role = c("aut", "cre"))
