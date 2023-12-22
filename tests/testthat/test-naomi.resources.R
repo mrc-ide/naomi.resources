@@ -21,8 +21,8 @@ test_that("can get AGYW data for a country", {
 
 test_that("can get zaf_propensity data", {
   data <- load_agyw_exdata("zaf_propensity", "ZAF")
-  expect_equal(nrow(data), 7)
-  expect_equal(ncol(data), 2)
+  expect_equal(nrow(data), 14)
+  expect_equal(ncol(data), 3)
 })
 
 test_that("can get path to workbook template", {
