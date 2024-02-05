@@ -1,18 +1,18 @@
-#' Load dependencies for AGYW PSE tool
+#' Load dependencies for SHIPP PSE tool
 #'
-#' @return Data input for AGYW PSE tool.
+#' @return Data input for SHIPP PSE tool.
 #'
 #' @param data Name of data dependency (see below for full description).
 #' @param iso3 Country iso3
 #'
-#' @return Loaded AGYW data.
+#' @return Loaded SHIPP data.
 #'
 #' @export
-load_agyw_exdata <- function(data, iso3) {
+load_shipp_exdata <- function(data, iso3) {
   assert_scalar_character(data)
   assert_scalar_character(iso3)
   country_data <- get_country_data_path(
-    system_file(file.path("extdata", "agyw")),
+    system_file(file.path("extdata", "shipp")),
     iso3)
 
   if (data == "zaf_propensity" && toupper(iso3) != "ZAF") {
@@ -39,8 +39,8 @@ load_agyw_exdata <- function(data, iso3) {
 #' @return Path to the workbook template
 #'
 #' @export
-get_agyw_workbook_path <- function() {
-  system_file(file.path("extdata", "agyw"), "pse_workbook_template.xlsx")
+get_shipp_workbook_path <- function() {
+  system_file(file.path("extdata", "shipp"), "pse_workbook_template.xlsx")
 }
 
 get_country_data_path <- function(agy_data_path, iso3) {

@@ -17,7 +17,7 @@ devtools::install_github("mrc-ide/naomi.resources")
 
 ### Developmement
 
-To add or update a PSE workbook requires a little care
+To add or update a SHIPP workbook requires a little care
 * Open the new workbook, remove the data in the sheets "All outputs - F", "All outputs - M", "NAOMI outputs", but don't delete the sheets. The data in these sheets will be populated by Naomi.
 * Add a sheet called "Resources" this will hold the info about the naomi.resources used to generate the sheet
 
