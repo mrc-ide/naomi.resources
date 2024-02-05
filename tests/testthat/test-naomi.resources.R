@@ -25,6 +25,12 @@ test_that("can get zaf_propensity data", {
   expect_equal(ncol(data), 3)
 })
 
+test_that("can get goals data", {
+  data <- load_shipp_exdata("goals", "SSA")
+  expect_equal(nrow(data), 38)
+  expect_equal(ncol(data), 11)
+})
+
 test_that("can get path to workbook template", {
   expect_silent(get_shipp_workbook_path())
 })
