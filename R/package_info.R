@@ -12,7 +12,7 @@
 get_resources_info <- function(iso3) {
   assert_scalar_character(iso3)
   root <- system_file()
-  country_data <- get_country_data_path(file.path(root, "extdata", "agyw"),
+  country_data <- get_country_data_path(file.path(root, "extdata", "shipp"),
                                         iso3)
 
   files <- list.files(country_data, full.names = TRUE)
