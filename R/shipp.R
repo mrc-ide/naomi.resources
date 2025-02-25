@@ -41,7 +41,7 @@ load_shipp_exdata <- function(data, iso3) {
 #'
 #' @export
 get_shipp_workbook_path <- function() {
-  system_file(file.path("extdata", "shipp"), "pse_workbook_template.xlsx")
+  system_file(file.path("extdata", "shipp"), "shipp_tool_all_ages_sexes_singlecountry_template.xlsx")
 }
 
 get_country_data_path <- function(agy_data_path, iso3) {
