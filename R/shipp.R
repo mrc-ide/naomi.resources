@@ -29,7 +29,7 @@ load_shipp_exdata <- function(data, iso3) {
     "kp_estimates" = file.path("kp_estimates.csv"),
     "afs" = file.path("age_sex_fertility_rates.csv"),
     "zaf_propensity" = file.path("zaf_propensity.csv"),
-    "goals" = file.path("goals_results_2023.csv"),
+    "goals" = file.path("goals_results.csv"),
     cli::cli_abort("Can't locate data of type '{data}'.")
   )
 
