@@ -27,7 +27,7 @@ test_that("can get zaf_propensity data", {
 
 test_that("can get goals data", {
   data <- load_shipp_exdata("goals", "SSA")
-  expect_equal(nrow(data), 38)
+  expect_equal(nrow(data), 99)
   expect_equal(ncol(data), 11)
 })
 
@@ -46,3 +46,4 @@ test_that("informative error thrown if iso3 or data unknown", {
     "Can't locate data of type 'data_type'."
   )
 })
+
