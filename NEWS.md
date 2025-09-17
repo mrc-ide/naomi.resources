@@ -1,3 +1,8 @@
+# naomi.resources 0.0.7
+
+* Update with new excel workbook, KP subpopulation now in hidden tab.
+* Update to 2024 Goals estimates
+
 # naomi.resources 0.0.6
 
 * Update with new excel workbook, KP subpopulation now in hidden tab.
