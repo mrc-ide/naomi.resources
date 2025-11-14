@@ -1,3 +1,13 @@
+# naomi.resources 0.0.7
+
+* Update with new excel workbook, KP subpopulation now in hidden tab.
+* Update to 2024 Goals estimates
+
+# naomi.resources 0.0.6
+
+* Update with new excel workbook, KP subpopulation now in hidden tab.
+* Update to 2023 Goals estimates
+
 # naomi.resources 0.0.5
 
 * Update with SAE sexual risk behaviour model using subnational boundaries for 2024 UNAIDS HIV estimates process + inclusion of THISS survey. 

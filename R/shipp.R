@@ -5,6 +5,8 @@
 #' @param data Name of data dependency (see below for full description).
 #' @param iso3 Country iso3
 #'
+#' Subnational boundaries represent subnational administrative units used by UNAIDS sourced from
+#'
 #' @return Loaded SHIPP data.
 #'
 #' @export
@@ -27,7 +29,7 @@ load_shipp_exdata <- function(data, iso3) {
     "kp_estimates" = file.path("kp_estimates.csv"),
     "afs" = file.path("age_sex_fertility_rates.csv"),
     "zaf_propensity" = file.path("zaf_propensity.csv"),
-    "goals" = file.path("goals_results_2022.csv"),
+    "goals" = file.path("goals_results.csv"),
     cli::cli_abort("Can't locate data of type '{data}'.")
   )
 
@@ -41,7 +43,7 @@ load_shipp_exdata <- function(data, iso3) {
 #'
 #' @export
 get_shipp_workbook_path <- function() {
-  system_file(file.path("extdata", "shipp"), "pse_workbook_template.xlsx")
+  system_file(file.path("extdata", "shipp"), "shipp_tool_all_ages_sexes_singlecountry_template.xlsx")
 }
 
 get_country_data_path <- function(agy_data_path, iso3) {
