@@ -13,6 +13,12 @@ URL: https://github.com/mrc-ide/naomi.resources
 Imports:
     cli,
     readr
-Suggests: 
+Suggests:
+    gt,
+    knitr,
+    naomi,
+    rmarkdown,
+    tibble,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+VignetteBuilder: knitr
