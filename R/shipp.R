@@ -64,3 +64,21 @@ system_file <- function(...) {
   system.file(..., package = "naomi.resources", mustWork = TRUE)
 }
 
+#' Get year of SRB estimates from SHIPP workbook template
+#'
+#' @return Year of SRB estimates to use in SHIPP calculations. Based on most recent
+#' survey or set to 2018 is most recent survey is older than 2018. Harcoded into
+#' SHIPP workbook template on "County Model" tab.
+#' @param iso3 Country iso3
+#'
+#' @export
+get_srb_year <- function(iso3){
+
+  assert_scalar_character(iso3)
+  wb_path <- get_shipp_workbook_path()
+  survey_meta <- readxl::read_excel(wb_path, sheet = "Model inputs",
+                                    range = "B6:F41")
+  srb_year <- survey_meta[survey_meta$iso3 == iso3,]$`Sexual risk behaviour estimates`
+
+}
+

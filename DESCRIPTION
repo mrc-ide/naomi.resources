@@ -14,7 +14,8 @@ Additional_repositories:
     https://mrc-ide.r-universe.dev
 Imports:
     cli,
-    readr
+    readr, 
+    readxl
 Suggests:
     gt,
     knitr,
