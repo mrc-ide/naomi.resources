@@ -1,3 +1,9 @@
+# naomi.resources 0.0.8
+* Update excel workbook with new incidence categories
+* Update Country model tab with 2025 survey update
+* Add in SRB survey year on Country Model tab
+* Update SAE sexual risk behaviour model using subnational boundaries for 2025 UNAIDS HIV estimates process + inclusion of all avalible SRB surveys
+
 # naomi.resources 0.0.7
 
 * Update with new excel workbook, KP subpopulation now in hidden tab.
