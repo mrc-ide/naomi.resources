@@ -9,7 +9,9 @@ load_shipp_exdata(data, iso3)
 \arguments{
 \item{data}{Name of data dependency (see below for full description).}
 
-\item{iso3}{Country iso3}
+\item{iso3}{Country iso3
+
+Subnational boundaries represent subnational administrative units used by UNAIDS sourced from}
 }
 \value{
 Data input for SHIPP PSE tool.

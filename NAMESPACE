@@ -2,4 +2,5 @@
 
 export(get_resources_info)
 export(get_shipp_workbook_path)
+export(get_srb_year)
 export(load_shipp_exdata)

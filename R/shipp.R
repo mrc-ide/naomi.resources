@@ -78,7 +78,8 @@ get_srb_year <- function(iso3){
   wb_path <- get_shipp_workbook_path()
   survey_meta <- readxl::read_excel(wb_path, sheet = "Model inputs",
                                     range = "B6:F41")
+  if(iso3 == "MWI_demo"){iso3 <- "MWI"}
   srb_year <- survey_meta[survey_meta$iso3 == iso3,]$`Sexual risk behaviour estimates`
-
+  return(srb_year)
 }
 
