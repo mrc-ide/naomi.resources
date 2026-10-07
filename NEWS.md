@@ -1,3 +1,9 @@
+# naomi.resources 0.0.9
+
+* Fix SRB prevalence log odds ratios (`prevalence_lor.csv`) being identical across countries. Previously the generating script fitted every country on the pooled multi-country survey data, so all countries except ZAF shared one set of LORs; now each country is fitted on its own survey data, falling back to pooled data where a country has no usable rows, and for CAF, BEN and ZWE, and ZAF and GMB men, where per-country fits are unstable.
+* Include ages 45-49 in `lor_30to49`. Previously a typo in the age-group filter (`Y045_49` instead of `Y045_049`) dropped 45-49 year olds from the 30-49 regression. `lor_15to29` is unchanged.
+* `sexpaid12m_id` LORs are `NA` for countries without enough survey data to estimate them. These are not used by `naomi.utils` SHIPP calculations, which take KP LORs for that group instead.
+
 # naomi.resources 0.0.8
 
 * Update excel workbook with new incidence categories
